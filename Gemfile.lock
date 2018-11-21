@@ -13,6 +13,7 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.4)
       tilt (~> 2.0)
+    sinatra-cors (1.1.0)
     tilt (2.0.8)
 
 PLATFORMS
@@ -21,6 +22,7 @@ PLATFORMS
 DEPENDENCIES
   nokogiri
   sinatra
+  sinatra-cors
 
 BUNDLED WITH
    1.17.1

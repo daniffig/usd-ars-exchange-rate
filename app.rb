@@ -1,8 +1,14 @@
 # USD/ARS Exchange Rate API
 
 require 'sinatra'
+require 'sinatra/cors'
 require 'nokogiri'
 require 'open-uri'
+
+set :allow_origin, "*"
+set :allow_methods, "GET"
+set :allow_headers, "content-type,if-modified-since"
+set :expose_headers, "location,link"
 
 get '/' do
   redirect '/usd-ars-exchange-rate.json'
