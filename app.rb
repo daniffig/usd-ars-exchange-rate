@@ -5,6 +5,14 @@ require 'nokogiri'
 require 'open-uri'
 
 get '/' do
+  redirect '/usd-ars-exchange-rate.json'
+end
+
+get '/usd-ars-exchange-rate' do
+  redirect '/usd-ars-exchange-rate.json'
+end
+
+get '/usd-ars-exchange-rate.json' do
   doc = Nokogiri::HTML(open('http://dolarhoy.com/cotizacion-dolar'))
 
   last_update_text = "#{doc.at_css('.update').text} -0300"
@@ -16,7 +24,7 @@ get '/' do
   content_type :json
 
   json = {
-    last_update: last_update_datetime.to_s,
+    last_update: last_update_datetime,
     usd_buy_rate: usd_buy_rate,
     usd_sell_rate: usd_sell_rate
   }.to_json
